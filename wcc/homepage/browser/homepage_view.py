@@ -12,3 +12,16 @@ class Index(dexterity.DisplayForm):
 
     def slider_items(self):
         return [i.to_object for i in self.context.slider_items]
+
+    def news_items(self):
+        source = self.context.news_source.to_object
+        results = source.queryCatalog(batch=False) or []
+        return [i.getObject() for i in results[:3]]
+
+    def event_items(self):
+        rel = self.context.events_source
+        if not rel:
+            return []
+        source = rel.to_object
+        results = source.queryCatalog(batch=False) or []
+        return [i.getObject() for i in results[:5]]

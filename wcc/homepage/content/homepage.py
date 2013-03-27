@@ -19,7 +19,9 @@ from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from wcc.homepage import MessageFactory as _
-
+from wcc.carousel.interfaces import ICarouselImageEnabled
+from Products.ATContentTypes.interfaces.topic import IATTopic
+from plone.app.collection.interfaces import ICollection
 
 # Interface class; used to define content-type schema.
 
@@ -27,6 +29,39 @@ class IHomepage(form.Schema, IImageScaleTraversable):
     """
     Description of the Example Type
     """
-    pass
 
+    slider_items = RelationList(
+        title=u'Slider items',
+        value_type=RelationChoice(
+            source=ObjPathSourceBinder(
+                object_provides=ICarouselImageEnabled.__identifier__
+            )
+        ),
+        required=True
+    )
 
+    news_source = RelationChoice(
+        title=u'Source collection for news listing',
+        source=ObjPathSourceBinder(
+            object_provides=[IATTopic.__identifier__,
+                            ICollection.__identifier__]
+        ),
+        required=True
+    )
+
+    more_news_target = RelationChoice(
+        title=u'Target for "More News" link',
+        source=ObjPathSourceBinder(
+            object_provides=[IATTopic.__identifier__,
+                            ICollection.__identifier__]
+        ),
+    )
+
+    events_source = RelationChoice(
+        title=u'Source collection for events listing',
+        source=ObjPathSourceBinder(
+            object_provides=[IATTopic.__identifier__,
+                            ICollection.__identifier__]
+        ),
+        required=False
+    )

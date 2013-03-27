@@ -31,6 +31,7 @@ setup(name='wcc.homepage',
           'collective.grok',
           'plone.app.referenceablebehavior',
           'collective.dexteritytextindexer',
+          'wcc.carousel',
           # -*- Extra requirements: -*-
       ],
       extras_require={

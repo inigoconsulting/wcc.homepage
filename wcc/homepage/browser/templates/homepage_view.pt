@@ -81,7 +81,10 @@
                             </tal:block>
                         </tal:block>
                         </div>
-                     </div>
+                    </div>
+                    <div class="homepage-morenews" tal:define="target view/more_news_target">
+                        <a tal:attributes="href target/absolute_url">More News</a>
+                    </div>
                 </div>
             </div>
             <div class="cell width-2:5 position-3:5">

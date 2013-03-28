@@ -26,13 +26,14 @@
           style="width:790px;"
           tal:define="slider_items view/slider_items">
           <div class="preload"><div></div></div>
-          <div class="main-slider-content" style="width:511px;height:333px;padding:5px 10px;">
+          <div class="main-slider-content" style="width:510px;height:330px;padding:5px 10px;">
                 <ul class="sliders-wrap-inner">
                     <li tal:repeat="item slider_items">
                         <tal:def define="scales item/@@images;
-                            image python:scales.scale('carousel_image', width=511, height=333)">
+                            image python:scales.scale('carousel_image', width=510, height=330)">
                             <a tal:attributes="href item/absolute_url">
-                                <img tal:replace="structure image/tag"/>
+                                <img tal:replace="structure image/tag" tal:condition="image"/>
+                                <img src="http://placehold.it/511x333" tal:condition="not:image"/>
                             </a>
                         </tal:def>
                     </li>

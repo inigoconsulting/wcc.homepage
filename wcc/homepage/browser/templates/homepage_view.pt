@@ -55,10 +55,14 @@
       </div>
         <div class="visualClear"></div>
     </div>
-        <div class="row" style="margin-top:10px">
+    <div class="row" 
+        id="homepage-news-events-listing"
+        style="margin-top:10px" tal:define="news_items view/news_items;
+                                            event_items view/event_items"
+                                tal:condition="python:news_items or event_items">
             <div class="cell width-3:5 position-0">
                 <div id="homepage-news">
-                    <div class="homepage-newsitem" tal:repeat="item view/news_items">
+                    <div class="homepage-newsitem" tal:repeat="item news_items">
                         <div class="row">
                         <tal:block define="featureimages nocall:item/@@featureimages;
                             featureimage python:featureimages.tag(width=235)">
@@ -82,20 +86,20 @@
                         </tal:block>
                         </div>
                     </div>
-                    <div class="homepage-morenews" tal:define="target view/more_news_target">
+                    <div class="homepage-morenews" 
+                            tal:condition="news_items"
+                            tal:define="target view/more_news_target">
                         <a tal:attributes="href target/absolute_url">More News</a>
                     </div>
                 </div>
             </div>
             <div class="cell width-2:5 position-3:5">
-                <tal:block define="event_items view/event_items">
-                    <div id="homepage-events" tal:condition="event_items">
-                        <h2 id="homepage-events-title">Events</h2>
-                        <div tal:repeat="item event_items" class="homepage-event">
-                            <p><a tal:attributes="href item/absolute_url" tal:content="item/Title"></a></p>
-                        </div>
+                <div id="homepage-events" tal:condition="event_items">
+                    <h2 id="homepage-events-title">Events</h2>
+                    <div tal:repeat="item event_items" class="homepage-event">
+                        <p><a tal:attributes="href item/absolute_url" tal:content="item/Title"></a></p>
                     </div>
-                </tal:block>
+                </div>
             </div>
         </div>
     </div>

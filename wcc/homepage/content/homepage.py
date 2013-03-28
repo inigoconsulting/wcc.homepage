@@ -49,7 +49,7 @@ class IHomepage(form.Schema, IImageScaleTraversable):
             object_provides=[IATTopic.__identifier__,
                             ICollection.__identifier__]
         ),
-        required=True
+        required=False
     )
 
     languageindependent('more_news_target')

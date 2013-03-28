@@ -11,6 +11,8 @@ class Index(dexterity.DisplayForm):
     grok.name('view')
 
     def slider_items(self):
+        if not self.context.slider_items:
+            return []
         return [i.to_object for i in self.context.slider_items]
 
     def news_items(self):

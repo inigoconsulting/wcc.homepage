@@ -2,7 +2,7 @@
 /* CSS Document */
 
 /* slider layout */
-.lof-slidecontent { position:relative;	overflow:hidden;	border:#F4F4F4 solid 1px; box-shadow: 0 5px 25px #555; background: #E3E2DB;}
+.lof-slidecontent { position:relative;	overflow:hidden; box-shadow: 0 5px 25px #555; background: #E3E2DB;}
 .lof-slidecontent .preload{	height:100%;	width:100%;	position:absolute;	top:0;	left:0;	z-index:100000;	text-align:center;	background:#FFF}
 .lof-slidecontent .preload div{	height:100%;	width:100%;	background:transparent url(lofslidernews/images/load-indicator.gif) no-repeat scroll 50% 50%;}
 

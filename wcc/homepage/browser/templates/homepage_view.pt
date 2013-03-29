@@ -13,49 +13,46 @@
               <script src="++resource++wcc.homepage/lofslidernews/js/jquery.js"></script>
               <script src="++resource++wcc.homepage/lofslidernews/js/jquery.easing.js"></script>
               <script src="++resource++wcc.homepage/lofslidernews/js/script.js"></script>
-              <script src="++resource++wcc.homepage/script.js"></script>
+              <script tal:attributes="src string:${context/absolute_url}/homepage.js"></script>
           </metal:block>
     </head>
 <body>
 
 <metal:main fill-slot="body">
   <metal:content-core define-macro="content-core">
-    <div id="homepage-view">
-    <div style="margin:0 auto;width:790px">
-      <div id="homepage-slider" class="lof-slidecontent"
-          style="width:790px;"
-          tal:define="slider_items view/slider_items">
-          <div class="preload"><div></div></div>
-          <div class="main-slider-content" style="width:510px;height:330px;padding:5px 10px;">
-                <ul class="sliders-wrap-inner">
-                    <li tal:repeat="item slider_items">
-                        <tal:def define="scales item/@@images;
-                            image python:scales.scale('carousel_image', width=510, height=330)">
-                            <a tal:attributes="href item/absolute_url">
-                                <img tal:replace="structure image/tag" tal:condition="image"/>
-                                <img src="http://placehold.it/510x330" tal:condition="not:image"/>
-                            </a>
-                        </tal:def>
-                    </li>
-                </ul>
+      <div id="homepage-view">
+          <div>
+              <div id="homepage-slider" class="lof-slidecontent"
+                  style="width:790px;"
+                  tal:attributes="style view/slider_style"
+                  tal:define="slider_items view/slider_items">
+                  <div class="preload"><div></div></div>
+                  <div class="main-slider-content" tal:attributes="style view/slider_slide_style">
+                      <ul class="sliders-wrap-inner">
+                          <li tal:repeat="item slider_items">
+                              <a tal:attributes="href item/absolute_url">
+                                  <img tal:replace="structure python:view.get_image_tag(item)"/>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="navigator-content" style="height:353px;width:303px">
+                      <div class="navigator-wrapper">
+                          <ul class="navigator-wrap-inner">
+                              <li tal:repeat="item slider_items">
+                                  <div tal:define="title item/carousel_title|item/Title;
+                                      obj_title item/Title;
+                                      title python:title or obj_title">
+                                      <h2 tal:content="title"></h2>
+                                      <span tal:content="item/carousel_description|nothing"></span>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="visualClear"></div>
           </div>
-          <div class="navigator-content" style="height:353px;width:303px">
-              <div class="navigator-wrapper">
-                  <ul class="navigator-wrap-inner">
-                        <li tal:repeat="item slider_items">
-                            <div tal:define="title item/carousel_title|item/Title;
-                                             obj_title item/Title;
-                                             title python:title or obj_title">
-                                <h2 tal:content="title"></h2>
-                                <span tal:content="item/carousel_description|nothing"></span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-      </div>
-        <div class="visualClear"></div>
-    </div>
     <div class="row" 
         id="homepage-news-events-listing"
         style="margin-top:10px" tal:define="news_items view/news_items;

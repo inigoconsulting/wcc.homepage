@@ -71,3 +71,13 @@ class IHomepage(form.Schema, IImageScaleTraversable):
         ),
         required=False
     )
+
+    languageindependent('slider_type')
+    slider_type = schema.Choice(
+        title=_(u'Slider type'),
+        default='normal',
+        values=['normal','full-width'],
+        required=True,
+        description=_(u'Normal slider requires 510x330px images, Full ' +
+                    u'Width slider requires 782x330px images')
+    )

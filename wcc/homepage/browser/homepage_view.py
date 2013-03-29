@@ -35,3 +35,53 @@ class Index(dexterity.DisplayForm):
         if self.context.more_news_target:
             return self.context.more_news_target.to_object
         return self.context.news_source.to_object
+
+    def get_image_tag(self, obj):
+        scales = obj.restrictedTraverse('@@images')
+        if self.context.slider_type == 'full-width':
+            image = scales.scale('carousel_image', width=782, height=330)
+            placeholder = '<img src="http://placehold.it/782x330"/>'
+        else:
+            image = scales.scale('carousel_image', width=510, height=330)
+            placeholder = '<img src="http://placehold.it/510x330"/>'
+        if not image:
+            return placeholder
+        return image.tag()
+
+
+    def slider_slide_style(self):
+        if self.context.slider_type == 'full-width':
+            return "width:782px;height:330px;padding:5px 10px;"
+        return "width:510px;height:330px;padding:5px 10px;"
+
+    def slider_style(self):
+        if self.context.slider_type == 'full-width':
+            return "width:1062px;" # 782 + 272
+        return "width:790px" # 510 + 272
+
+class HomepageJS(grok.View):
+    grok.context(IHomepage)
+    grok.name('homepage.js')
+
+    def render(self):
+        self.request.response.setHeader('Content-Type', 'text/javascript')
+        template = '''
+var homepageJQ = $.noConflict();
+homepageJQ(document).ready(function() {
+    homepageJQ("#homepage-slider").lofJSidernews({ interval:5000,
+        easing:'easeInOutQuad',
+        duration:1200,
+        auto:true,
+        mainWidth:%(width)s,
+        mainHeight:%(height)s,
+        navigatorHeight : 87,
+        navigatorWidth : 303,
+        maxItemDisplay:4
+    });
+})
+        '''
+
+        if self.context.slider_type == 'full-width':
+            return template % {'width': 782, 'height': 330}
+        return  template % {'width': 510, 'height': 330}
+

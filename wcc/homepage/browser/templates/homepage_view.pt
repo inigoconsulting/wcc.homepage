@@ -20,7 +20,7 @@
 
 <metal:main fill-slot="body">
   <metal:content-core define-macro="content-core">
-      <div id="homepage-view">
+      <div id="homepage-view" tal:attributes="class view/homepage_class">
           <div>
               <div id="homepage-slider" class="lof-slidecontent"
                   style="width:790px;"

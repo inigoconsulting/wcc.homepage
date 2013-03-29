@@ -59,6 +59,11 @@ class Index(dexterity.DisplayForm):
             return "width:1062px;" # 782 + 272
         return "width:790px" # 510 + 272
 
+    def homepage_class(self):
+        if self.context.slider_type == 'full-width':
+            return 'homepage-full-width'
+        return 'homepage-normal-width'
+
 class HomepageJS(grok.View):
     grok.context(IHomepage)
     grok.name('homepage.js')

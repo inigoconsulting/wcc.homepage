@@ -8,7 +8,8 @@ jQuery17(document).ready(function() {
         mainHeight:333,
         navigatorHeight : 87,
         navigatorWidth : 303,
-        maxItemDisplay:4
+        maxItemDisplay:4,
+        navigatorEvent: 'mouseenter'
     });
 })
 

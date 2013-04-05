@@ -43,7 +43,8 @@
                                   <div tal:define="title item/carousel_title|item/Title;
                                       obj_title item/Title;
                                       title python:title or obj_title">
-                                      <h2 tal:content="title"></h2>
+                                      <h2><a tal:attributes="href item/absolute_url"
+                                              tal:content="title"></a></h2>
                                       <span tal:content="item/carousel_description|nothing"></span>
                                   </div>
                               </li>

@@ -81,7 +81,8 @@ homepageJQ(document).ready(function() {
         mainHeight:%(height)s,
         navigatorHeight : 87,
         navigatorWidth : 303,
-        maxItemDisplay:4
+        maxItemDisplay:4,
+        navigatorEvent: 'mouseenter'
     });
 })
         '''

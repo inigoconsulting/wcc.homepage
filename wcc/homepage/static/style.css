@@ -147,6 +147,6 @@ ul.sliders-wrap-inner li img{	padding:0px;	}
 	background:url(lofslidernews/images/pause.png) no-repeat center center;
 }
 
-.lof-slidecontent ul.navigator-wrap-inner li.active h2 a {
+.lof-slidecontent ul.navigator-wrap-inner li.active a {
     color: #fff;
 }

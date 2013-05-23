@@ -28,8 +28,8 @@
                   tal:define="slider_items view/slider_items">
                   <div class="preload"><div></div></div>
                   <div class="main-slider-content" tal:attributes="style view/slider_slide_style">
-                      <ul class="sliders-wrap-inner">
-                          <li tal:repeat="item slider_items">
+                      <ul class="sliders-wrap-inner" tal:attributes="style view/slider_slide_wrap_inner_style">
+                          <li tal:repeat="item slider_items" style="position:absolute;top:0">
                               <a tal:attributes="href item/absolute_url">
                                   <img tal:replace="structure python:view.get_image_tag(item)"/>
                               </a>

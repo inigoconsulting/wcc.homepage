@@ -64,6 +64,11 @@ class Index(dexterity.DisplayForm):
             return 'homepage-full-width'
         return 'homepage-normal-width'
 
+    def slider_slide_wrap_inner_style(self):
+        if self.context.slider_type == 'full-width':
+            return "width:782px;height:330px;"
+        return "width:510px;height:330px;"
+
 class HomepageJS(grok.View):
     grok.context(IHomepage)
     grok.name('homepage.js')
@@ -75,7 +80,7 @@ var homepageJQ = $.noConflict();
 homepageJQ(document).ready(function() {
     homepageJQ("#homepage-slider").lofJSidernews({ interval:5000,
         easing:'easeInOutQuad',
-        duration:1200,
+        duration:600,
         direction: 'opacity',
         auto:true,
         mainWidth:%(width)s,

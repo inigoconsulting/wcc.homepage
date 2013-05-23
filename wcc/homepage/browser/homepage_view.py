@@ -76,6 +76,7 @@ homepageJQ(document).ready(function() {
     homepageJQ("#homepage-slider").lofJSidernews({ interval:5000,
         easing:'easeInOutQuad',
         duration:1200,
+        direction: 'opacity',
         auto:true,
         mainWidth:%(width)s,
         mainHeight:%(height)s,

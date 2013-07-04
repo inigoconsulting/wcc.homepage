@@ -23,10 +23,11 @@ from wcc.carousel.interfaces import ICarouselImageEnabled
 from Products.ATContentTypes.interfaces.topic import IATTopic
 from plone.app.collection.interfaces import ICollection
 from plone.multilingualbehavior.directives import languageindependent
+from wcc.homepage.interfaces import IBaseHomepage
 
 # Interface class; used to define content-type schema.
 
-class IHomepage(form.Schema, IImageScaleTraversable):
+class IHomepage(form.Schema, IBaseHomepage, IImageScaleTraversable):
     """
     Description of the Example Type
     """

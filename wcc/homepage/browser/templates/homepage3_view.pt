@@ -83,10 +83,11 @@
                                 
                           </div>
                       </div>
-                      <div class="homepage-morenews" 
+                      <div class="homepage3-morenews" 
                           tal:define="target view/more_news_target">
-                          <a tal:attributes="href target/absolute_url"
-                              i18n:translate="homepage_more_news">More News</a>
+                          <a tal:attributes="href target/absolute_url">
+                              <span i18n:translate="homepage_more_news">More News</span> &raquo;
+                          </a> 
                       </div>
                   </div>
           </metal:content-core>

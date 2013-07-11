@@ -22,7 +22,9 @@ class Index(dexterity.DisplayForm):
     def more_news_target(self):
         if self.context.more_news_target:
             return self.context.more_news_target.to_object
-        return self.context.news_source.to_object
+        if self.context.news_source:
+            return self.context.news_source.to_object
+        return None
 
     def slider_items(self):
         if not self.context.slider_items:

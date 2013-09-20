@@ -69,6 +69,10 @@ class Index(dexterity.DisplayForm):
             return "width:782px;height:330px;"
         return "width:510px;height:330px;"
 
+    def get_event_date(self, obj):
+        return obj.startDate.strftime("%d %B %Y")
+
+
 class HomepageJS(grok.View):
     grok.context(IHomepage)
     grok.name('homepage.js')

@@ -100,7 +100,12 @@
                 <div id="homepage-events" tal:condition="event_items">
                     <h2 id="homepage-events-title" i18n:translate="homepage_events_title">Events</h2>
                     <div tal:repeat="item event_items" class="homepage-event">
-                        <p><a tal:attributes="href item/absolute_url" tal:content="item/Title"></a></p>
+                        <p>
+                            
+                        <span class="home-event-date" tal:content="python: view.get_event_date(item)"></span>
+                            <a tal:attributes="href item/absolute_url" tal:content="item/Title"></a>
+                        
+                        </p>
                     </div>
                 </div>
             </div>

@@ -150,3 +150,9 @@ ul.sliders-wrap-inner li img{	padding:0px;	}
 .lof-slidecontent ul.navigator-wrap-inner li.active a {
     color: #fff;
 }
+.home-event-date {
+    font-weight: bold;
+    font-size: 10px;
+    color: rgb(128, 0, 0);
+    display: block;
+}

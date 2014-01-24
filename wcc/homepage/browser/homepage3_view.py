@@ -16,7 +16,7 @@ class Index(dexterity.DisplayForm):
             return []
         source = rel.to_object
         results = source.queryCatalog(batch=False) or []
-        count = 2 if self.thirdcolumn() else 3
+        count = 3 if self.thirdcolumn() else 4
         return [i.getObject() for i in results[:count]]
 
     def more_news_target(self):
@@ -33,7 +33,8 @@ class Index(dexterity.DisplayForm):
 
     def get_image_tag(self, obj):
         scales = obj.restrictedTraverse('@@images')
-        image = scales.scale('carousel_image', width=510, height=330)
+        image = scales.scale('carousel_image', width=780, height=330,
+                             direction='down')
         placeholder = '<img src="http://placehold.it/510x330"/>'
         if not image:
             return placeholder
@@ -42,10 +43,28 @@ class Index(dexterity.DisplayForm):
     def thirdcolumn(self):
         return (self.context.third_column_text or '').strip()
 
-    def newsblock_class(self, index, count):
-        if index == 0:
-            return "cell width-1:%s position-0" % count
+    def newsblock_class(self, index):
+        if self.thirdcolumn():
+            count = 3
+            if index == 0:
+                return "cell width-1:%s position-0" % count
+        else:
+            count = 4
+            if index == 0:
+                return "cell width-1:%s position-0" % count
+            elif index == 2:
+                position_count = count / 2
+                position_index = index / 2
+                return "cell width-1:%s position-%s:%s" % (count,
+                                                           position_index,
+                                                           position_count)
         return "cell width-1:%s position-%s:%s" % (count, index, count)
+
+    def adaptable_width(self):
+        if self.thirdcolumn():
+            return "news-cell cell width-3:4 position-0"
+        return "news-cell cell width-full position-0"
+
 
 class HomepageJS(grok.View):
     grok.context(IHomepage3)
@@ -71,5 +90,5 @@ homepageJQ(document).ready(function() {
 })
         '''
 
-        return template % {'width': 510, 'height': 330}
+        return template % {'width': 780, 'height': 330}
 

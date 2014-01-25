@@ -35,7 +35,7 @@ class Index(dexterity.DisplayForm):
         scales = obj.restrictedTraverse('@@images')
         image = scales.scale('carousel_image', width=780, height=330,
                              direction='down')
-        placeholder = '<img src="http://placehold.it/510x330"/>'
+        placeholder = '<img src="http://placehold.it/780x330"/>'
         if not image:
             return placeholder
         return image.tag()

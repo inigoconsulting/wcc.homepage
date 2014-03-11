@@ -1,6 +1,8 @@
 from five import grok
 from plone.directives import dexterity, form
 from wcc.homepage.content.homepage import IHomepage
+from plone.api.portal import get_localized_time
+import re
 
 grok.templatedir('templates')
 
@@ -70,7 +72,21 @@ class Index(dexterity.DisplayForm):
         return "width:510px;height:330px;"
 
     def get_event_date(self, obj):
-        return obj.startDate.strftime("%d %B %Y")
+        start = obj.startDate
+        end = obj.endDate
+        if start.year() == end.year():
+            if start.month() == end.month():
+                if start.day() == end.day():
+                    return get_localized_time(start)
+                return u"{0} - {1}".format(start.strftime('%d'),
+                                          get_localized_time(end))
+            else:
+                front_date = re.sub(str(start.year()), '',
+                                    get_localized_time(start))
+                return u"{0} - {1}".format(front_date, get_localized_time(end))
+
+        return u'{0} - {1}'.format(get_localized_time(start),
+                                  get_localized_time(end))
 
 
 class HomepageJS(grok.View):

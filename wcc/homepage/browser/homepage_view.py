@@ -78,8 +78,10 @@ class Index(dexterity.DisplayForm):
             if start.month() == end.month():
                 if start.day() == end.day():
                     return get_localized_time(start)
-                return u"{0} - {1}".format(start.strftime('%d'),
-                                          get_localized_time(end))
+                else:
+                    return u"{0} - {1}".format(
+                        get_localized_time(start).split()[0],
+                        get_localized_time(end))
             else:
                 front_date = re.sub(str(start.year()), '',
                                     get_localized_time(start))

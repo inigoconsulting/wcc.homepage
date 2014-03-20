@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="wcc.homepage">
+      <head>
+          <metal:block fill-slot="style_slot">
+            <link rel="stylesheet" href="++resource++wcc.homepage/style.css"/>
+          </metal:block>
+          <metal:block fill-slot="javascript_head_slot">
+              <script src="++resource++wcc.homepage/lofslidernews/js/jquery.js"></script>
+              <script src="++resource++wcc.homepage/lofslidernews/js/jquery.easing.js"></script>
+              <script src="++resource++wcc.homepage/lofslidernews/js/script.js"></script>
+              <script tal:attributes="src string:${context/absolute_url}/homepage.js"></script>
+          </metal:block>
+    </head>
+<body>
+
+<metal:main fill-slot="body">
+  <metal:content-core define-macro="content-core">
+      <div id="homepage-view" tal:attributes="class view/homepage_class">
+          <div>
+              <div id="homepage-slider" class="lof-slidecontent"
+                  style="width:790px;"
+                  tal:attributes="style view/slider_style"
+                  tal:define="slider_items view/slider_items">
+                  <div class="preload"><div></div></div>
+                  <div class="main-slider-content" tal:attributes="style view/slider_slide_style">
+                      <ul class="sliders-wrap-inner" tal:attributes="style view/slider_slide_wrap_inner_style">
+                          <li tal:repeat="item slider_items" style="position:absolute;top:0">
+                              <a tal:attributes="href item/absolute_url">
+                                  <img tal:replace="structure python:view.get_image_tag(item)"/>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="navigator-content" style="height:353px;width:303px">
+                      <div class="navigator-wrapper">
+                          <ul class="navigator-wrap-inner">
+                              <li tal:repeat="item slider_items">
+
+                                  <div tal:define="title item/carousel_title|item/Title;
+                                      obj_title item/Title;
+                                      title python:title or obj_title">
+                                      <a tal:attributes="href item/absolute_url"
+                                          style="display:block;height:70px">
+                                      <h2 tal:content="title"></h2>
+                                      <span tal:content="item/carousel_description|nothing"></span>
+                                  </a>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="visualClear"></div>
+          </div>
+    <div class="row" 
+        id="homepage-news-events-listing"
+        style="margin-top:10px" tal:define="news_items view/news_items;
+                                            event_items view/event_items"
+                                tal:condition="python:news_items or event_items">
+            <div class="cell width-3:5 position-0">
+                <div id="homepage-news">
+                    <div class="homepage-newsitem" tal:repeat="item news_items">
+                        <div class="row">
+                        <tal:block define="featureimages nocall:item/@@featureimages;
+                            featureimage python:featureimages.tag(width=235)">
+                            <tal:block condition="featureimage">
+                                <div class="cell width-1:2 position-0">
+                                    <img tal:replace="structure featureimage"/>
+                                </div>
+                                <div class="cell width-1:2 position-1:2">
+                                    <h3><a tal:attributes="href item/absolute_url"
+                                            tal:content="item/Title"></a></h3>
+                                    <p tal:content="item/Description"></p>
+                                </div>
+                            </tal:block>
+                            <tal:block condition="not:featureimage">
+                                <div class="cell width-full position-0">
+                                    <h3><a tal:attributes="href item/absolute_url"
+                                            tal:content="item/Title"></a></h3>
+                                    <p tal:content="item/Description"></p>
+                                </div>
+                            </tal:block>
+                        </tal:block>
+                        </div>
+                    </div>
+                    <div class="homepage-morenews" 
+                            tal:condition="news_items"
+                            tal:define="target view/more_news_target">
+                            <a tal:attributes="href target/absolute_url"
+                                i18n:translate="homepage_more_news">More News</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>

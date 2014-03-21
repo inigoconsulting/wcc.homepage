@@ -43,9 +43,9 @@ class IHomepage4(form.Schema, IBaseHomepage, IImageScaleTraversable):
         required=True
     )
 
-    languageindependent('item_source')
-    item_source = RelationChoice(
-        title=u'Source collection for items',
+    languageindependent('data_source')
+    data_source = RelationChoice(
+        title=u'Source collection for data',
         source=ObjPathSourceBinder(
             object_provides=[IATTopic.__identifier__,
                             ICollection.__identifier__]
@@ -53,8 +53,8 @@ class IHomepage4(form.Schema, IBaseHomepage, IImageScaleTraversable):
         required=False
     )
 
-    languageindependent('more_item_target')
-    more_item_target = RelationChoice(
+    languageindependent('more_data_target')
+    more_data_target = RelationChoice(
         title=u'Target for "More" link',
         source=ObjPathSourceBinder(
             object_provides=[IATTopic.__identifier__,

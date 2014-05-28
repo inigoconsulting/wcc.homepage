@@ -1,0 +1,228 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="wcc.homepage">
+      <head>
+          <metal:block fill-slot="style_slot">
+            <link rel="stylesheet" href="++resource++wcc.homepage/style.css"/>
+          </metal:block>
+          <metal:block fill-slot="javascript_head_slot">
+              <script src="++resource++wcc.homepage/lofslidernews/js/jquery.js"></script>
+              <script src="++resource++wcc.homepage/lofslidernews/js/jquery.easing.js"></script>
+              <script src="++resource++wcc.homepage/lofslidernews/js/script.js"></script>
+              <script tal:attributes="src string:${context/absolute_url}/homepage.js"></script>
+          </metal:block>
+    </head>
+<body>
+
+<metal:main fill-slot="body">
+  <metal:content-core define-macro="content-core">
+  <div id="homepage5-view" tal:attributes="class string:${view/homepage_class}">
+          <div>
+              <div id="homepage-slider" class="lof-slidecontent"
+                  style="width:790px;"
+                  tal:attributes="style view/slider_style"
+                  tal:define="slider_items view/slider_items">
+                  <div class="preload"><div></div></div>
+                  <div class="main-slider-content" tal:attributes="style view/slider_slide_style">
+                      <ul class="sliders-wrap-inner" tal:attributes="style view/slider_slide_wrap_inner_style">
+                          <li tal:repeat="item slider_items" style="position:absolute;top:0">
+                              <a tal:attributes="href item/absolute_url">
+                                  <img tal:replace="structure python:view.get_image_tag(item)"/>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="navigator-content" style="height:353px;width:303px">
+                      <div class="navigator-wrapper">
+                          <ul class="navigator-wrap-inner">
+                              <li tal:repeat="item slider_items">
+
+                                  <div tal:define="title item/carousel_title|item/Title;
+                                      obj_title item/Title;
+                                      title python:title or obj_title">
+                                      <a tal:attributes="href item/absolute_url"
+                                          style="display:block;height:70px">
+                                      <h2 tal:content="title"></h2>
+                                      <span tal:content="item/carousel_description|nothing"></span>
+                                  </a>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="visualClear"></div>
+          </div>
+                      <div id="homepage3-newsblock" class="row news-cell" tal:define="news_items view/source1_items;">
+                          <div tal:content="structure context/source1_text/output" class="source1-text cell width-1:4 position-0">
+                          </div>
+
+                          <div class="cell width-3:4 position-1:4">
+                          <div class="row">
+                          <tal:r repeat="item news_items">
+                            <div tal:condition="repeat/item/start" tal:attributes="class string: cell width-1:4 position-0" 
+                                tal:define="featureimages nocall:item/@@featureimages; featureimage python:featureimages.tag(height=215,width=215)">
+
+                            <tal:block condition="featureimage">
+                                <div style="width:235px; margin:0 auto;">
+                                    <img tal:replace="structure featureimage"/>
+                                </div>
+                                <div>
+                                    <h3><a tal:attributes="href item/absolute_url"
+                                            tal:content="item/Title"></a></h3>
+                                    <p tal:content="item/Description"></p>
+                                </div>
+                            </tal:block>
+
+                            <tal:feature-exist condition="not:featureimage | nothing">
+
+                                      <tal:image-exist condition="item/@@images/image | nothing">
+                                      <tal:block define='images item/@@images; image python: images.tag("image",  width=235, height=300 )'>
+                                          <div style="width:235px;margin:0 auto;">
+                                              <img tal:replace="structure image"/>
+                                          </div>    
+                                          <div>    
+                                              <h3><a tal:attributes="href item/absolute_url"
+                                                      tal:content="item/Title"></a></h3>
+                                              <p tal:content="item/Description"></p>
+                                          </div>    
+                                      </tal:block>    
+                                      </tal:image-exist>    
+
+                           
+                                      <tal:image-exist condition="not:item/@@images/image | nothing">
+                                          <div style="width:235px;margin:0 auto;">
+                                              <img src="http://placehold.it/235x300"/>
+                                          </div>    
+                                          <div>                                        
+                                              <h3><a tal:attributes="href item/absolute_url"
+                                                      tal:content="item/Title"></a></h3>
+                                              <p tal:content="item/Description"></p>
+                                          </div>                                       
+                                      </tal:image-exist>                               
+                                                                                       
+                            </tal:feature-exist>
+                                  </div>                                               
+                                                                                       
+                                  <div tal:condition="not:repeat/item/start" tal:attributes="class string: cell width-1:4 position-${repeat/item/index}:3">
+                                      <tal:image-exist condition="item/@@images/image | nothing">
+                                      <tal:block define='images item/@@images; image python: images.tag("image",  width=235, height=300 )'>
+                                          <div style="width:235px;margin:0 auto;">
+                                              <img tal:replace="structure image"/>
+                                          </div>                                    
+                                          <div>                                        
+                                              <h3><a tal:attributes="href item/absolute_url"
+                                                      tal:content="item/Title"></a></h3>
+                                              <p tal:content="item/Description"></p>
+                                          </div>                                    
+                                      </tal:block>                                     
+                                      </tal:image-exist>                               
+                                                                                       
+                                      <tal:image-exist condition="not:item/@@images/image | nothing">
+                                          <div style="width:235px;margin:0 auto;">
+                                              <img src="http://placehold.it/235x300"/>
+                                          </div>    
+                                          <div>    
+                                              <h3><a tal:attributes="href item/absolute_url"
+                                                      tal:content="item/Title"></a></h3>
+                                              <p tal:content="item/Description"></p>
+                                          </div>    
+                                      </tal:image-exist>    
+                                  </div>  
+                          </tal:r>
+                      </div>
+                      </div>
+                      </div>
+
+
+
+                      <div id="homepage3-newsblock" class="row news-cell" tal:define="news_items view/source2_items;">
+                          <div tal:content="structure context/source2_text/output" class="source2-text cell width-1:4 position-0">
+                          </div>
+
+                          <div class="cell width-3:4 position-1:4">
+                          <div class="row">
+                          <tal:r repeat="item news_items">
+                            <div tal:condition="repeat/item/start" tal:attributes="class string: cell width-1:4 position-0" 
+                                tal:define="featureimages nocall:item/@@featureimages; featureimage python:featureimages.tag(height=215,width=215)">
+
+                            <tal:block condition="featureimage">
+                                <div style="width:235px; margin:0 auto;">
+                                    <img tal:replace="structure featureimage"/>
+                                </div>
+                                <div>
+                                    <h3><a tal:attributes="href item/absolute_url"
+                                            tal:content="item/Title"></a></h3>
+                                    <p tal:content="item/Description"></p>
+                                </div>
+                            </tal:block>
+
+                            <tal:feature-exist condition="not:featureimage | nothing">
+
+                                      <tal:image-exist condition="item/@@images/image | nothing">
+                                      <tal:block define='images item/@@images; image python: images.tag("image",  width=235, height=300 )'>
+                                          <div style="width:235px;margin:0 auto;">
+                                              <img tal:replace="structure image"/>
+                                          </div>    
+                                          <div>    
+                                              <h3><a tal:attributes="href item/absolute_url"
+                                                      tal:content="item/Title"></a></h3>
+                                              <p tal:content="item/Description"></p>
+                                          </div>    
+                                      </tal:block>    
+                                      </tal:image-exist>    
+
+                           
+                                      <tal:image-exist condition="not:item/@@images/image | nothing">
+                                          <div style="width:235px;margin:0 auto;">
+                                              <img src="http://placehold.it/235x300"/>
+                                          </div>    
+                                          <div>                                        
+                                              <h3><a tal:attributes="href item/absolute_url"
+                                                      tal:content="item/Title"></a></h3>
+                                              <p tal:content="item/Description"></p>
+                                          </div>                                       
+                                      </tal:image-exist>                               
+                                                                                       
+                            </tal:feature-exist>
+                                  </div>                                               
+                                                                                       
+                                  <div tal:condition="not:repeat/item/start" tal:attributes="class string: cell width-1:4 position-${repeat/item/index}:3">
+                                      <tal:image-exist condition="item/@@images/image | nothing">
+                                      <tal:block define='images item/@@images; image python: images.tag("image",  width=235, height=300 )'>
+                                          <div style="width:235px;margin:0 auto;">
+                                              <img tal:replace="structure image"/>
+                                          </div>                                    
+                                          <div>                                        
+                                              <h3><a tal:attributes="href item/absolute_url"
+                                                      tal:content="item/Title"></a></h3>
+                                              <p tal:content="item/Description"></p>
+                                          </div>                                    
+                                      </tal:block>                                     
+                                      </tal:image-exist>                               
+                                                                                       
+                                      <tal:image-exist condition="not:item/@@images/image | nothing">
+                                          <div style="width:235px;margin:0 auto;">
+                                              <img src="http://placehold.it/235x300"/>
+                                          </div>    
+                                          <div>    
+                                              <h3><a tal:attributes="href item/absolute_url"
+                                                      tal:content="item/Title"></a></h3>
+                                              <p tal:content="item/Description"></p>
+                                          </div>    
+                                      </tal:image-exist>    
+                                  </div>  
+                          </tal:r>
+                      </div>
+                      </div>
+                      </div>
+    </div>
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>

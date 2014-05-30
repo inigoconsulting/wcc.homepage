@@ -45,8 +45,8 @@ class Index(dexterity.DisplayForm):
     def get_image_tag(self, obj):
         scales = obj.restrictedTraverse('@@images')
         if self.context.slider_type == 'full-width':
-            image = scales.scale('slider_image', width=782, height=330)
-            placeholder = '<img src="http://placehold.it/782x330"/>'
+            image = scales.scale('slider_image', width=698, height=330)
+            placeholder = '<img src="http://placehold.it/698x330"/>'
         else:
             image = scales.scale('slider_image', width=510, height=330)
             placeholder = '<img src="http://placehold.it/510x330"/>'
@@ -56,12 +56,12 @@ class Index(dexterity.DisplayForm):
 
     def slider_slide_style(self):
         if self.context.slider_type == 'full-width':
-            return "width:782px;height:330px;padding:5px 10px;"
+            return "width:718px;height:330px;padding:5px 10px;"
         return "width:510px;height:330px;padding:5px 10px;"
 
     def slider_style(self):
         if self.context.slider_type == 'full-width':
-            return "width:1060px;"
+            return "width:970px;"
         return "width:790px"
 
     def homepage_class(self):

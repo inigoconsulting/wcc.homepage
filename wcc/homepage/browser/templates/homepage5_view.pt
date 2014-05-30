@@ -36,7 +36,7 @@
                           </li>
                       </ul>
                   </div>
-                  <div class="navigator-content" style="height:353px;width:303px">
+                  <div class="navigator-content" style="height:353px;width:297px">
                       <div class="navigator-wrapper">
                           <ul class="navigator-wrap-inner">
                               <li tal:repeat="item slider_items">
@@ -64,7 +64,7 @@
                           <div class="cell width-3:4 position-1:4">
                           <div class="row">
                           <tal:r repeat="item news_items">
-                            <div tal:condition="repeat/item/start" tal:attributes="class string: cell width-1:4 position-0" 
+                            <div tal:condition="repeat/item/start" tal:attributes="class string: cell width-1:4 position-0 for-home-news-items" 
                                 tal:define="featureimages nocall:item/@@featureimages; featureimage python:featureimages.tag(height=215,width=215)">
 
                             <tal:block condition="featureimage">
@@ -108,7 +108,7 @@
                             </tal:feature-exist>
                                   </div>                                               
                                                                                        
-                                  <div tal:condition="not:repeat/item/start" tal:attributes="class string: cell width-1:4 position-${repeat/item/index}:3"
+                                  <div tal:condition="not:repeat/item/start" tal:attributes="class string: cell width-1:4 position-${repeat/item/index}:3 for-home-news-items"
                                 tal:define="featureimages nocall:item/@@featureimages; featureimage python:featureimages.tag(height=215,width=215)">
 
                             <tal:block condition="featureimage">
@@ -162,7 +162,7 @@
                           <div class="cell width-3:4 position-1:4">
                           <div class="row">
                           <tal:r repeat="item news_items">
-                            <div tal:condition="repeat/item/start" tal:attributes="class string: cell width-1:4 position-0" 
+                            <div tal:condition="repeat/item/start" tal:attributes="class string: cell width-1:4 position-0 for-home-news-items" 
                                 tal:define="featureimages nocall:item/@@featureimages; featureimage python:featureimages.tag(height=215,width=215)">
 
                             <tal:block condition="featureimage">
@@ -206,7 +206,7 @@
                             </tal:feature-exist>
                                   </div>                                               
                                                                                        
-                                  <div tal:condition="not:repeat/item/start" tal:attributes="class string: cell width-1:4 position-${repeat/item/index}:3"
+                                  <div tal:condition="not:repeat/item/start" tal:attributes="class string: cell width-1:4 position-${repeat/item/index}:3 for-home-news-items"
                                 tal:define="featureimages nocall:item/@@featureimages; featureimage python:featureimages.tag(height=215,width=215)">
 
                             <tal:block condition="featureimage">
@@ -252,52 +252,70 @@
                       </div>
                       </div>
 
-                      <div id="homepage3-newsblock" class="row" tal:define="news_items view/blog_items;">
-                          <div class="blog-section cell width-3:4 position-0" >
-                              <h3>Blog Feed</h3>
-                              <div class="row">
-                              <div class="cell width-1:2 position-0">
-                                  <ul>
-                                      <li tal:repeat="item view/blog_items">
-                                        <tal:block define="images nocall:item/@@featureimages; image python: images.tag(height=48, width=48)">
-                                        <img tal:condition="image" tal:replace="structure image"/>
-                                        <span tal:content="item/title"/>
-                                        </tal:block>
-
-                                     </li>
-                                  </ul>
-                                </div>
-                              <div class="cell width-1:2 position-1:2">
-                              <ul>
-                                  <li tal:repeat="item python: view.blog_items(3, 6)">
-
-                                        <tal:block define="images nocall:item/@@featureimages; image python: images.tag(height=48, width=48)">
-                                        <img tal:condition="image" tal:replace="structure image"/>
-                                        <span tal:content="item/title"/>
-                                        </tal:block>
-
-                                </li>
-                              </ul>
-                                </div>
+                      <div id="homepage3-newsblock" class="row blog-container" tal:define="news_items view/blog_items;">
+                              <div class="blog-section cell width-3:4 position-0 large-8 columns" >
+                                    <div class="bordered-container">
+                                          <h3>Blog Feed</h3>
+                                          <div class="row">
+                                                <div class="cell width-1:2 position-0 large-6 columns">
+                                                      
+                                                      <article class="blog-post" tal:repeat="item view/blog_items">
+                                                            <tal:block define="images nocall:item/@@featureimages; image python: images.tag(height=48, width=48)">
+                                                                  <div class="post-img">
+                                                                    <a href="">
+                                                                      <img tal:condition="image" tal:replace="structure image"/>
+                                                                    </a>
+                                                                  </div>
+                                                                  <div class="post-text">
+                                                                    <a href="">
+                                                                      <p tal:content="item/title"/>
+                                                                    </a>
+                                                                  </div>
+                                                            </tal:block>
+                                                      </article>
+                                                </div>
+                                                <div class="cell width-1:2 position-1:2 large-6 columns">
+                                                      <article class="blog-post" tal:repeat="item python: view.blog_items(3, 6)">
+                                                            <tal:block define="images nocall:item/@@featureimages; image python: images.tag(height=48, width=48)">
+                                                                  <div class="post-img">
+                                                                    <a href="">
+                                                                      <img tal:condition="image" tal:replace="structure image"/>
+                                                                    </a>
+                                                                  </div>
+                                                                  <div class="post-text">
+                                                                    <a href="">
+                                                                      <p tal:content="item/title"/>
+                                                                    </a>
+                                                                  </div>
+                                                            </tal:block>
+                                                      </article>
+                                                </div>
+                                          </div>
+                                                    
+                                    </div>
                               </div>
 
-                          </div>
-
-                          <div class="social-newsletter cell width-1:4 position-3:4">
-
-                              <div class="social-button">
-
-                                  button
-
+                              <div class="social-newsletter cell width-1:4 position-3:4 large-4 columns">
+                                    <div class="social-button bordered-container social-connect-container">
+                                          <h3>Connect With Us</h3>
+                                          <div class="social-icon">
+                                                <a class="g-plus" href="" title="gplus">google plus</a>
+                                                <a class="facebook" href="" title="facebook">facebook</a>
+                                                <a class="twitter" href="" title="twitter">twitter</a>
+                                                <a class="youtube" href="" title="youtube">youtube</a>
+                                          </div>
+                                    </div>
+                                    <div class="newsletter-box bordered-container sign-up-for-update-container">
+                                          <h3>Like what you see? Sign-up for our email updates.</h3>
+                                          <div class="sign-up-for-update">
+                                            <a class="sign-up-link" href="">
+                                              <span>Register</span>
+                                              <img src="/++theme++eappi.theme/images/signup-for-update.png" alt="" />
+                                            </a>
+                                          </div> 
+                                    </div>
+    
                               </div>
-
-                              <div class="newsletter-box">
-
-                                  textfield
-
-                              </div>
-
-                          </div>
                       </div>
 
     </div>

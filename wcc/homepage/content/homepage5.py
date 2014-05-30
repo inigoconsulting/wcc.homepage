@@ -24,6 +24,8 @@ from Products.ATContentTypes.interfaces.topic import IATTopic
 from plone.app.collection.interfaces import ICollection
 from plone.multilingualbehavior.directives import languageindependent
 from wcc.homepage.interfaces import IBaseHomepage
+from ftw.blog.interfaces import IBlog
+from collective.sliderfields.interfaces import ISliderFieldsEnabled
 
 # Interface class; used to define content-type schema.
 
@@ -37,7 +39,7 @@ class IHomepage5(form.Schema, IBaseHomepage, IImageScaleTraversable):
         title=u'Slider items',
         value_type=RelationChoice(
             source=ObjPathSourceBinder(
-                object_provides=ICarouselImageEnabled.__identifier__
+                object_provides=ISliderFieldsEnabled.__identifier__
             )
         ),
         required=True

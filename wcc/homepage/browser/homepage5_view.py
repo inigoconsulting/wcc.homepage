@@ -34,13 +34,13 @@ class Index(dexterity.DisplayForm):
         results = source.queryCatalog(batch=False) or []
         return [i.getObject() for i in results[:3]]
 
-    def blog_items(self):
+    def blog_items(self, start=0, end=3):
         rel = self.context.blog_source
         if not rel:
             return []
         source = rel.to_object
         results = source.queryCatalog(batch=False) or []
-        return [i.getObject() for i in results[:3]]
+        return [i.getObject() for i in results[start:end]]
 
 
     def get_image_tag(self, obj):

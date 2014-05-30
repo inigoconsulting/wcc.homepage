@@ -68,7 +68,7 @@
                                 tal:define="featureimages nocall:item/@@featureimages; featureimage python:featureimages.tag(height=215,width=215)">
 
                             <tal:block condition="featureimage">
-                                <div style="width:235px; margin:0 auto;">
+                                <div style="width:215px; margin:0 auto;">
                                     <img tal:replace="structure featureimage"/>
                                 </div>
                                 <div>
@@ -81,8 +81,8 @@
                             <tal:feature-exist condition="not:featureimage | nothing">
 
                                       <tal:image-exist condition="item/@@images/image | nothing">
-                                      <tal:block define='images item/@@images; image python: images.tag("image",  width=235, height=300 )'>
-                                          <div style="width:235px;margin:0 auto;">
+                                      <tal:block define='images item/@@images; image python: images.tag("image",  width=215, height=215 )'>
+                                          <div style="width:215px;margin:0 auto;">
                                               <img tal:replace="structure image"/>
                                           </div>    
                                           <div>    
@@ -95,8 +95,8 @@
 
                            
                                       <tal:image-exist condition="not:item/@@images/image | nothing">
-                                          <div style="width:235px;margin:0 auto;">
-                                              <img src="http://placehold.it/235x300"/>
+                                          <div style="width:215px;margin:0 auto;">
+                                              <img src="http://placehold.it/215x215"/>
                                           </div>    
                                           <div>                                        
                                               <h3><a tal:attributes="href item/absolute_url"
@@ -108,10 +108,25 @@
                             </tal:feature-exist>
                                   </div>                                               
                                                                                        
-                                  <div tal:condition="not:repeat/item/start" tal:attributes="class string: cell width-1:4 position-${repeat/item/index}:3">
+                                  <div tal:condition="not:repeat/item/start" tal:attributes="class string: cell width-1:4 position-${repeat/item/index}:3"
+                                tal:define="featureimages nocall:item/@@featureimages; featureimage python:featureimages.tag(height=215,width=215)">
+
+                            <tal:block condition="featureimage">
+                                <div style="width:215px; margin:0 auto;">
+                                    <img tal:replace="structure featureimage"/>
+                                </div>
+                                <div>
+                                    <h3><a tal:attributes="href item/absolute_url"
+                                            tal:content="item/Title"></a></h3>
+                                    <p tal:content="item/Description"></p>
+                                </div>
+                            </tal:block>
+
+
+                            <tal:feature-exist condition="not:featureimage | nothing">
                                       <tal:image-exist condition="item/@@images/image | nothing">
-                                      <tal:block define='images item/@@images; image python: images.tag("image",  width=235, height=300 )'>
-                                          <div style="width:235px;margin:0 auto;">
+                                      <tal:block define='images item/@@images; image python: images.tag("image",  width=215, height=215 )'>
+                                          <div style="width:215px;margin:0 auto;">
                                               <img tal:replace="structure image"/>
                                           </div>                                    
                                           <div>                                        
@@ -123,8 +138,8 @@
                                       </tal:image-exist>                               
                                                                                        
                                       <tal:image-exist condition="not:item/@@images/image | nothing">
-                                          <div style="width:235px;margin:0 auto;">
-                                              <img src="http://placehold.it/235x300"/>
+                                          <div style="width:215px;margin:0 auto;">
+                                              <img src="http://placehold.it/215x215"/>
                                           </div>    
                                           <div>    
                                               <h3><a tal:attributes="href item/absolute_url"
@@ -132,12 +147,12 @@
                                               <p tal:content="item/Description"></p>
                                           </div>    
                                       </tal:image-exist>    
+                            </tal:feature-exist>
                                   </div>  
                           </tal:r>
                       </div>
                       </div>
                       </div>
-
 
 
                       <div id="homepage3-newsblock" class="row news-cell" tal:define="news_items view/source2_items;">
@@ -151,7 +166,7 @@
                                 tal:define="featureimages nocall:item/@@featureimages; featureimage python:featureimages.tag(height=215,width=215)">
 
                             <tal:block condition="featureimage">
-                                <div style="width:235px; margin:0 auto;">
+                                <div style="width:215px; margin:0 auto;">
                                     <img tal:replace="structure featureimage"/>
                                 </div>
                                 <div>
@@ -164,8 +179,8 @@
                             <tal:feature-exist condition="not:featureimage | nothing">
 
                                       <tal:image-exist condition="item/@@images/image | nothing">
-                                      <tal:block define='images item/@@images; image python: images.tag("image",  width=235, height=300 )'>
-                                          <div style="width:235px;margin:0 auto;">
+                                      <tal:block define='images item/@@images; image python: images.tag("image",  width=215, height=215 )'>
+                                          <div style="width:215px;margin:0 auto;">
                                               <img tal:replace="structure image"/>
                                           </div>    
                                           <div>    
@@ -178,8 +193,8 @@
 
                            
                                       <tal:image-exist condition="not:item/@@images/image | nothing">
-                                          <div style="width:235px;margin:0 auto;">
-                                              <img src="http://placehold.it/235x300"/>
+                                          <div style="width:215px;margin:0 auto;">
+                                              <img src="http://placehold.it/215x215"/>
                                           </div>    
                                           <div>                                        
                                               <h3><a tal:attributes="href item/absolute_url"
@@ -191,10 +206,25 @@
                             </tal:feature-exist>
                                   </div>                                               
                                                                                        
-                                  <div tal:condition="not:repeat/item/start" tal:attributes="class string: cell width-1:4 position-${repeat/item/index}:3">
+                                  <div tal:condition="not:repeat/item/start" tal:attributes="class string: cell width-1:4 position-${repeat/item/index}:3"
+                                tal:define="featureimages nocall:item/@@featureimages; featureimage python:featureimages.tag(height=215,width=215)">
+
+                            <tal:block condition="featureimage">
+                                <div style="width:215px; margin:0 auto;">
+                                    <img tal:replace="structure featureimage"/>
+                                </div>
+                                <div>
+                                    <h3><a tal:attributes="href item/absolute_url"
+                                            tal:content="item/Title"></a></h3>
+                                    <p tal:content="item/Description"></p>
+                                </div>
+                            </tal:block>
+
+
+                            <tal:feature-exist condition="not:featureimage | nothing">
                                       <tal:image-exist condition="item/@@images/image | nothing">
-                                      <tal:block define='images item/@@images; image python: images.tag("image",  width=235, height=300 )'>
-                                          <div style="width:235px;margin:0 auto;">
+                                      <tal:block define='images item/@@images; image python: images.tag("image",  width=215, height=215 )'>
+                                          <div style="width:215px;margin:0 auto;">
                                               <img tal:replace="structure image"/>
                                           </div>                                    
                                           <div>                                        
@@ -206,8 +236,8 @@
                                       </tal:image-exist>                               
                                                                                        
                                       <tal:image-exist condition="not:item/@@images/image | nothing">
-                                          <div style="width:235px;margin:0 auto;">
-                                              <img src="http://placehold.it/235x300"/>
+                                          <div style="width:215px;margin:0 auto;">
+                                              <img src="http://placehold.it/215x215"/>
                                           </div>    
                                           <div>    
                                               <h3><a tal:attributes="href item/absolute_url"
@@ -215,11 +245,61 @@
                                               <p tal:content="item/Description"></p>
                                           </div>    
                                       </tal:image-exist>    
+                            </tal:feature-exist>
                                   </div>  
                           </tal:r>
                       </div>
                       </div>
                       </div>
+
+                      <div id="homepage3-newsblock" class="row" tal:define="news_items view/blog_items;">
+                          <div class="blog-section cell width-3:4 position-0" >
+                              <h3>Blog Feed</h3>
+                              <div class="row">
+                              <div class="cell width-1:2 position-0">
+                                  <ul>
+                                      <li tal:repeat="item view/blog_items">
+                                        <tal:block define="images nocall:item/@@featureimages; image python: images.tag(height=48, width=48)">
+                                        <img tal:condition="image" tal:replace="structure image"/>
+                                        <span tal:content="item/title"/>
+                                        </tal:block>
+
+                                     </li>
+                                  </ul>
+                                </div>
+                              <div class="cell width-1:2 position-1:2">
+                              <ul>
+                                  <li tal:repeat="item python: view.blog_items(3, 6)">
+
+                                        <tal:block define="images nocall:item/@@featureimages; image python: images.tag(height=48, width=48)">
+                                        <img tal:condition="image" tal:replace="structure image"/>
+                                        <span tal:content="item/title"/>
+                                        </tal:block>
+
+                                </li>
+                              </ul>
+                                </div>
+                              </div>
+
+                          </div>
+
+                          <div class="social-newsletter cell width-1:4 position-3:4">
+
+                              <div class="social-button">
+
+                                  button
+
+                              </div>
+
+                              <div class="newsletter-box">
+
+                                  textfield
+
+                              </div>
+
+                          </div>
+                      </div>
+
     </div>
   </metal:content-core>
 </metal:main>

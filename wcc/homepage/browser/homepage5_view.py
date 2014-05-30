@@ -42,14 +42,13 @@ class Index(dexterity.DisplayForm):
         results = source.queryCatalog(batch=False) or []
         return [i.getObject() for i in results[start:end]]
 
-
     def get_image_tag(self, obj):
         scales = obj.restrictedTraverse('@@images')
         if self.context.slider_type == 'full-width':
-            image = scales.scale('carousel_image', width=782, height=330)
+            image = scales.scale('slider_image', width=782, height=330)
             placeholder = '<img src="http://placehold.it/782x330"/>'
         else:
-            image = scales.scale('carousel_image', width=510, height=330)
+            image = scales.scale('slider_image', width=510, height=330)
             placeholder = '<img src="http://placehold.it/510x330"/>'
         if not image:
             return placeholder

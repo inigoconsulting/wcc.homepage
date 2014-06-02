@@ -72,7 +72,7 @@ ul.sliders-wrap-inner li img{	padding:0px;	}
 
 /* item navigator */
 .lof-slidecontent ul.navigator-wrap-inner  li.active{
-	background:url(slider-arrow.png) no-repeat scroll left center;;
+	background:url(slider-arrow.png) no-repeat scroll left center;
 	color:#FFF
 }
 

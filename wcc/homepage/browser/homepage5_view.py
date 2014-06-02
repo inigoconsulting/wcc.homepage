@@ -56,7 +56,7 @@ class Index(dexterity.DisplayForm):
 
     def slider_slide_style(self):
         if self.context.slider_type == 'full-width':
-            return "width:718px;height:330px;padding:5px 10px;"
+            return "width:718px;height:350px;padding:5px 10px;"
         return "width:510px;height:330px;padding:5px 10px;"
 
     def slider_style(self):

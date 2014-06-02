@@ -257,7 +257,7 @@
                                     <div class="bordered-container">
                                           <h3>Blog Feed</h3>
                                           <div class="row">
-                                                <div class="cell width-1:2 position-0 large-6 columns">
+                                                <div class="large-6 columns">
                                                       
                                                       <article class="blog-post" tal:repeat="item view/blog_items">
                                                             <tal:block define="images nocall:item/@@featureimages; image python: images.tag(height=48, width=48)">
@@ -274,7 +274,7 @@
                                                             </tal:block>
                                                       </article>
                                                 </div>
-                                                <div class="cell width-1:2 position-1:2 large-6 columns">
+                                                <div class="large-6 columns">
                                                       <article class="blog-post" tal:repeat="item python: view.blog_items(3, 6)">
                                                             <tal:block define="images nocall:item/@@featureimages; image python: images.tag(height=48, width=48)">
                                                                   <div class="post-img">

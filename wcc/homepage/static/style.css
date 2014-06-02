@@ -31,7 +31,15 @@
 	float:left
 }
 .lof-slidecontent  ul.navigator-wrap-inner{	top:0;	padding:0;	margin:0;	position:absolute;	width:100%; }
-.lof-slidecontent  ul.navigator-wrap-inner li{ cursor:hand; 	cursor:pointer;	list-style:none;	padding:0;	margin-left:0px;	overflow:hidden;	float:left;	display:block;	text-align:center;}
+.lof-slidecontent  ul.navigator-wrap-inner li{
+	cursor:hand;
+	cursor:pointer;	list-style:none;
+	padding:0;	margin-left:0px;
+	overflow:hidden;
+	float:left;	display:block;
+	text-align:center;
+	height: 87px;
+	}
 
 /*******************************************************/
  
@@ -73,8 +81,9 @@ ul.sliders-wrap-inner li img{	padding:0px;	}
 }
 
 .lof-slidecontent ul.navigator-wrap-inner li h2 {
-    margin-top:5px;
+    margin-top:10px;
     margin-bottom:0px;
+	color: #F47C0E;
 }
 
 .lof-slidecontent ul.navigator-wrap-inner  li >  div{
@@ -84,10 +93,16 @@ ul.sliders-wrap-inner li img{	padding:0px;	}
 	margin-left:45px;
 	padding-left:15px;
     padding-right:10px;
-	border-top:1px solid #CCC;
-	border-bottom:1px solid #FFF;
     margin-top:1px;
 	text-align:right;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #fff;
+}
+.lof-slidecontent ul.navigator-wrap-inner  li:first-child >  div{
+	border-top: none;
+}
+.lof-slidecontent ul.navigator-wrap-inner  li:last-child >  div{
+	border-bottom: none;
 }
 
 .lof-slidecontent ul.navigator-wrap-inner li.active div{

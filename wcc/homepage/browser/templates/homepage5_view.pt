@@ -22,7 +22,7 @@
   <metal:content-core define-macro="content-core">
   <div id="homepage5-view" tal:attributes="class string:${view/homepage_class}">
           <div>
-              <div id="homepage-slider" class="lof-slidecontent"
+              <div id="homepage-slider" class="focus-container lof-slidecontent"
                   style="width:790px;"
                   tal:attributes="style view/slider_style"
                   tal:define="slider_items view/slider_items">
@@ -38,7 +38,7 @@
                   </div>
                   <div class="navigator-content" style="height:353px;width:297px">
                       <div class="navigator-wrapper">
-                          <ul class="navigator-wrap-inner">
+                          <ul class="navigator-wrap-inner slider-nav">
                               <li tal:repeat="item slider_items">
 
                                   <div tal:define="title item/carousel_title|item/Title;
@@ -46,8 +46,8 @@
                                       title python:title or obj_title">
                                       <a tal:attributes="href item/absolute_url"
                                           style="display:block;height:70px">
-                                      <h2 tal:content="title"></h2>
-                                      <span tal:content="item/carousel_description|nothing"></span>
+                                      <h2 tal:content="title" class="nav-title"></h2>
+                                      <span class="nav-text" tal:content="item/carousel_description|nothing"></span>
                                   </a>
                                   </div>
                               </li>
@@ -257,7 +257,7 @@
                                     <div class="bordered-container">
                                           <h3>Blog Feed</h3>
                                           <div class="row">
-                                                <div class="cell width-1:2 position-0 large-6 columns">
+                                                <div class="large-6 columns">
                                                       
                                                       <article class="blog-post" tal:repeat="item view/blog_items">
                                                             <tal:block define="images nocall:item/@@featureimages; image python: images.tag(height=48, width=48)">
@@ -274,7 +274,7 @@
                                                             </tal:block>
                                                       </article>
                                                 </div>
-                                                <div class="cell width-1:2 position-1:2 large-6 columns">
+                                                <div class="large-6 columns">
                                                       <article class="blog-post" tal:repeat="item python: view.blog_items(3, 6)">
                                                             <tal:block define="images nocall:item/@@featureimages; image python: images.tag(height=48, width=48)">
                                                                   <div class="post-img">

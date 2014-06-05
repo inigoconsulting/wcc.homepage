@@ -41,13 +41,13 @@
                           <ul class="navigator-wrap-inner slider-nav">
                               <li tal:repeat="item slider_items">
 
-                                  <div tal:define="title item/carousel_title|item/Title;
+                                  <div tal:define="title item/slider_title|item/Title;
                                       obj_title item/Title;
                                       title python:title or obj_title">
                                       <a tal:attributes="href item/absolute_url"
                                           style="display:block;height:70px">
                                       <h2 tal:content="title" class="nav-title"></h2>
-                                      <span class="nav-text" tal:content="item/carousel_description|nothing"></span>
+                                      <span class="nav-text" tal:content="item/slider_description|nothing"></span>
                                   </a>
                                   </div>
                               </li>
@@ -58,7 +58,7 @@
               <div class="visualClear"></div>
           </div>
                       <div id="homepage3-newsblock" class="row news-cell" tal:define="news_items view/source1_items;">
-                          <div tal:content="structure context/source1_text/output" class="source1-text cell width-1:4 position-0">
+                          <div tal:content="structure context/source1_text/output | nothing" class="source1-text cell width-1:4 position-0">
                           </div>
 
                           <div class="cell width-3:4 position-1:4">
@@ -156,7 +156,7 @@
 
 
                       <div id="homepage3-newsblock" class="row news-cell" tal:define="news_items view/source2_items;">
-                          <div tal:content="structure context/source2_text/output" class="source2-text cell width-1:4 position-0">
+                          <div tal:content="structure context/source2_text/output | nothing" class="source2-text cell width-1:4 position-0">
                           </div>
 
                           <div class="cell width-3:4 position-1:4">

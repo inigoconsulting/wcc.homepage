@@ -82,9 +82,8 @@ class HomepageJS(grok.View):
     def render(self):
         self.request.response.setHeader('Content-Type', 'text/javascript')
         template = '''
-var homepageJQ = $.noConflict();
-homepageJQ(document).ready(function() {
-    homepageJQ("#homepage-slider").lofJSidernews({ interval:5000,
+$(document).ready(function() {
+    $("#homepage-slider").lofJSidernews({ interval:5000,
         easing:'easeInOutQuad',
         duration:600,
         direction: 'opacity',

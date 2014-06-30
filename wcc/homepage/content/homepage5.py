@@ -78,6 +78,15 @@ class IHomepage5(form.Schema, IBaseHomepage, IImageScaleTraversable):
         required=False
     )
 
+
+    languageindependent('blog_section_title')
+    blog_section_title = schema.TextLine(
+        title=_(u'Blog section title'),
+        default=_(u'On the blog'),
+        required=True,
+    )
+
+
     languageindependent('blog_source')
     blog_source = RelationChoice(
         title=u'Source collection for blog section',

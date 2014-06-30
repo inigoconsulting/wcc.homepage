@@ -255,7 +255,7 @@
                       <div id="homepage3-newsblock" class="row blog-container" tal:define="news_items view/blog_items;">
                               <div class="blog-section cell width-3:4 position-0 large-8 columns" >
                                     <div class="bordered-container">
-                                          <h3>Blog Feed</h3>
+                                          <h3 tal:content="context/blog_section_title"></h3>
                                           <div class="row">
                                                 <div class="large-6 columns">
                                                       

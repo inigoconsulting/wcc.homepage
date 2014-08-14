@@ -252,42 +252,28 @@
                       </div>
                       </div>
 
-                      <div id="homepage3-newsblock" class="row blog-container" tal:define="news_items view/blog_items;">
+                      <div id="homepage3-newsblock" class="row blog-container">
                               <div class="blog-section cell width-3:4 position-0 large-8 columns" >
                                     <div class="bordered-container">
-                                          <h3 tal:content="context/blog_section_title"></h3>
+                                          <h3 class="blog-section-title"></h3>
                                           <div class="row">
                                                 <div class="large-6 columns">
                                                       
-                                                      <article class="blog-post" tal:repeat="item view/blog_items">
-                                                            <tal:block define="images nocall:item/@@featureimages; image python: images.tag(height=48, width=48)">
-                                                                  <div class="post-img">
-                                                                    <a href="">
-                                                                      <img tal:condition="image" tal:replace="structure image"/>
-                                                                    </a>
-                                                                  </div>
+                                                      <article class="blog-post">
                                                                   <div class="post-text">
                                                                     <a href="">
-                                                                      <p tal:content="item/title"/>
+                                                                      <p class="blog-item-title">
                                                                     </a>
                                                                   </div>
-                                                            </tal:block>
                                                       </article>
                                                 </div>
                                                 <div class="large-6 columns">
-                                                      <article class="blog-post" tal:repeat="item python: view.blog_items(3, 6)">
-                                                            <tal:block define="images nocall:item/@@featureimages; image python: images.tag(height=48, width=48)">
-                                                                  <div class="post-img">
+                                                      <article class="blog-post">
+                                                                <div class="post-text">
                                                                     <a href="">
-                                                                      <img tal:condition="image" tal:replace="structure image"/>
+                                                                      <p class="blog-item-title"/>
                                                                     </a>
                                                                   </div>
-                                                                  <div class="post-text">
-                                                                    <a href="">
-                                                                      <p tal:content="item/title"/>
-                                                                    </a>
-                                                                  </div>
-                                                            </tal:block>
                                                       </article>
                                                 </div>
                                           </div>

@@ -79,26 +79,6 @@ class IHomepage5(form.Schema, IBaseHomepage, IImageScaleTraversable):
     )
 
 
-    languageindependent('blog_section_title')
-    blog_section_title = schema.TextLine(
-        title=_(u'Blog section title'),
-        default=_(u'On the blog'),
-        required=True,
-    )
-
-
-    languageindependent('blog_source')
-    blog_source = RelationChoice(
-        title=u'Source collection for blog section',
-        source=ObjPathSourceBinder(
-            object_provides=[IATTopic.__identifier__,
-                            ICollection.__identifier__]
-        ),
-        required=False
-    )
-
-
-
     languageindependent('slider_type')
     slider_type = schema.Choice(
         title=_(u'Slider type'),

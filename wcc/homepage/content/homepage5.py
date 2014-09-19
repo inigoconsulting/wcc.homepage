@@ -24,7 +24,6 @@ from Products.ATContentTypes.interfaces.topic import IATTopic
 from plone.app.collection.interfaces import ICollection
 from plone.multilingualbehavior.directives import languageindependent
 from wcc.homepage.interfaces import IBaseHomepage
-from ftw.blog.interfaces import IBlog
 from collective.sliderfields.interfaces import ISliderFieldsEnabled
 
 # Interface class; used to define content-type schema.

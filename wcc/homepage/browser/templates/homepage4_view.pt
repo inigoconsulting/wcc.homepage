@@ -71,7 +71,7 @@
                                           <div>    
                                               <h3><a tal:attributes="href item/absolute_url"
                                                       tal:content="item/Title"></a></h3>
-                                              <p tal:content="item/Description"></p>
+                                              <p tal:content="python: ' '.join(item.Description().split()[:40]) + '...'"></p>
                                           </div>    
                                       </tal:block>    
                                       </tal:image-exist>    
@@ -83,7 +83,7 @@
                                           <div>                                        
                                               <h3><a tal:attributes="href item/absolute_url"
                                                       tal:content="item/Title"></a></h3>
-                                              <p tal:content="item/Description"></p>
+                                              <p tal:content="python: ' '.join(item.Description().split()[:40]) + '...'"></p>
                                           </div>                                       
                                       </tal:image-exist>                               
                                                                                        
@@ -98,7 +98,7 @@
                                           <div>                                        
                                               <h3><a tal:attributes="href item/absolute_url"
                                                       tal:content="item/Title"></a></h3>
-                                              <p tal:content="item/Description"></p>
+                                              <p tal:content="python: ' '.join(item.Description().split()[:40]) + '...'"></p>
                                           </div>                                    
                                       </tal:block>                                     
                                       </tal:image-exist>                               
@@ -110,7 +110,7 @@
                                           <div>    
                                               <h3><a tal:attributes="href item/absolute_url"
                                                       tal:content="item/Title"></a></h3>
-                                              <p tal:content="item/Description"></p>
+                                              <p tal:content="python: ' '.join(item.Description().split()[:40]) + '...'"></p>
                                           </div>    
                                       </tal:image-exist>    
     
@@ -123,7 +123,7 @@
                             tal:define="target view/more_data_target"
                             tal:condition="view/more_data_target">
                           <a tal:attributes="href target/absolute_url">
-                              <span i18n:translate="homepage_more_news">More News</span> &raquo;
+                              <span i18n:translate="homepage_more_news">More Books</span> &raquo;
                           </a> 
                       </div>
 

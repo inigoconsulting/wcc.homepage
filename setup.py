@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.29.dev0'
+version = '1.29.dev1'
 
 setup(name='wcc.homepage',
       version=version,

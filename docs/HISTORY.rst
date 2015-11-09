@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.29.dev1 (unreleased)
+-----------------
+
+- increase number of displayed event items
+
 1.29 (unreleased)
 -----------------
 

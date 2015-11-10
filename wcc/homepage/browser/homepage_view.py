@@ -90,6 +90,11 @@ class Index(dexterity.DisplayForm):
         return u'{0} - {1}'.format(get_localized_time(start),
                                   get_localized_time(end))
 
+    def event_header_url(self):
+        path = '#'
+        if self.context.events_source:
+            path = self.context.events_source.to_object.absolute_url()
+        return path
 
 class HomepageJS(grok.View):
     grok.context(IHomepage)

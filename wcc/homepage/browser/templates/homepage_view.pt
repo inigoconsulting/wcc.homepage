@@ -98,8 +98,8 @@
             </div>
             <div class="cell width-2:5 position-3:5">
                 <div id="homepage-events" tal:condition="event_items">
-                    <h2 id="homepage-events-title" i18n:translate="homepage_events_title">
-                        <a tal:attributes="href view/event_header_url">Events</a>
+                    <h2 id="homepage-events-title">
+                        <a tal:attributes="href view/event_header_url"><span  i18n:translate="homepage_events_title">Events</span></a>
                     </h2>
                     
                     <div tal:repeat="item event_items" class="homepage-event">

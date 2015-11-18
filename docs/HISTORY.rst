@@ -1,15 +1,18 @@
 Changelog
 =========
 
+1.29.dev3 (nov 18 2015)
+-----------------
+- fixed bug on event header
+
 1.29.dev2 (nov 10 2015)
 -----------------
-
 - adjustment on template, changed events header to a hyperlink, added new function for event header url
 
 1.29.dev1 (unreleased)
 -----------------
-
 - increase number of displayed event items
+
 
 1.29 (unreleased)
 -----------------

@@ -82,7 +82,7 @@
                           </tal:r>
                       </div>
                         <div class="row homepage3-morenews" 
-                          tal:define="target view/more_news_target">
+                          tal:define="target view/more_news_target" tal:condition="target">
                           <a tal:attributes="href target/absolute_url">
                               <span i18n:translate="homepage_more_news">More News</span> &raquo;
                           </a> 

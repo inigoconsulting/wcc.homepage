@@ -15,7 +15,7 @@ class Index(dexterity.DisplayForm):
     def slider_items(self):
         if not self.context.slider_items:
             return []
-        return [i.to_object for i in self.context.slider_items]
+        return [i.to_object for i in self.context.slider_items if not i.isBroken()]
 
     def news_items(self):
         rel = self.context.news_source

@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.29.dev4 (feb 27 2018)
+-----------------
+- added condition if one of the slider items is broken
+
 1.29.dev3 (nov 18 2015)
 -----------------
 - fixed bug on event header

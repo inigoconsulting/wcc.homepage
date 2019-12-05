@@ -32,7 +32,7 @@ class IHomepage3(form.Schema, IBaseHomepage, IImageScaleTraversable):
     """
     
     """
-    languageindependent('slider_items')
+#    languageindependent('slider_items')
     slider_items = RelationList(
         title=u'Slider items',
         value_type=RelationChoice(
@@ -43,7 +43,7 @@ class IHomepage3(form.Schema, IBaseHomepage, IImageScaleTraversable):
         required=True
     )
 
-    languageindependent('news_source')
+#    languageindependent('news_source')
     news_source = RelationChoice(
         title=u'Source collection for news listing',
         source=ObjPathSourceBinder(
@@ -53,7 +53,7 @@ class IHomepage3(form.Schema, IBaseHomepage, IImageScaleTraversable):
         required=False
     )
 
-    languageindependent('more_news_target')
+#    languageindependent('more_news_target')
     more_news_target = RelationChoice(
         title=u'Target for "More News" link',
         source=ObjPathSourceBinder(

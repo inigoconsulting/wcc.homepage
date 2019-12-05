@@ -31,7 +31,7 @@ class IHomepage2(form.Schema, IBaseHomepage, IImageScaleTraversable):
     
     """
 
-    languageindependent('slider_items')
+#    languageindependent('slider_items')
     slider_items = RelationList(
         title=u'Slider items',
         value_type=RelationChoice(

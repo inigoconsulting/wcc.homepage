@@ -33,7 +33,7 @@ class IHomepage5(form.Schema, IBaseHomepage, IImageScaleTraversable):
     Description of the Example Type
     """
 
-    languageindependent('slider_items')
+#    languageindependent('slider_items')
     slider_items = RelationList(
         title=u'Slider items',
         value_type=RelationChoice(
@@ -44,7 +44,7 @@ class IHomepage5(form.Schema, IBaseHomepage, IImageScaleTraversable):
         required=True
     )
 
-    languageindependent('source1')
+#    languageindependent('source1')
     source1 = RelationChoice(
         title=u'Source collection row1',
         source=ObjPathSourceBinder(
@@ -61,7 +61,7 @@ class IHomepage5(form.Schema, IBaseHomepage, IImageScaleTraversable):
     )
 
 
-    languageindependent('source2')
+#    languageindependent('source2')
     source2 = RelationChoice(
         title=u'Source collection for row2',
         source=ObjPathSourceBinder(

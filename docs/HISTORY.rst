@@ -1,6 +1,15 @@
 Changelog
 =========
 
+1.29.dev6 (dec 17 2019)
+-----------------------
+- revert homepage5_view to find images from slider_image field
+- comment out languageindependent field directives for homepage 5
+
+1.29.dev5 (dec 5 2019)
+----------------------
+- comment out languageindependent field directives
+
 1.29.dev4 (feb 27 2018)
 -----------------
 - added condition if one of the slider items is broken
